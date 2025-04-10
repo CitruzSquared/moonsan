@@ -4,21 +4,83 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.cdnfonts.com/css/sofia-pro?styles=17630, 17626" rel="stylesheet">
-    <title>"Shiru's Blog"</title>
+    <link href="https://fonts.cdnfonts.com/css/sofia-pro" rel="stylesheet">
+    <title>Shiru's Blog</title>
     <style>
       body {
             padding: 0;
             margin: 0;
             overflow: hidden;
             overflow-y: scroll;
-            background-color: black;
+            background-color: white;
             font-family: 'Sofia Pro', sans-serif;
         }
+	div.navbar {
+	box-sizing:border-box;
+	position: fixed;
+	padding-left: 100px;
+	padding-right: 100px;
+	width: 100%;
+	margin-bottom:2px;
+	border-bottom-style: solid;
+	border-color: black;
+ 	background-color:white;
+	z-index: 100;
+        }
+        div.navbar-content {
+	width:60%; 
+	margin:auto; 
+	padding:0; 
+	display:flex;
+        }
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        a:hover, a:active {
+            text-decoration: underline;
+        }
+        li.navbar a {
+	display: block;
+  	padding: 3px;
+	margin-left: 10px;
+        }
+        li.navbar {
+	float: right;
+        }
+        ul.navbar {
+  	list-style-type: none;
+  	margin: 0;
+	padding-left: 0px;
+	padding-right: 20px;
+	overflow: hidden;
+	margin-top: 16px;
+	margin-bottom: 16px;
+	flex: 1;
+        }
+        @media screen and (max-width: 800px) {
+  	div.navbar-content {
+	width: 100%; 
+            }
+	div.navbar {
+	padding-left: 20px;
+	padding-right: 0;
+	}
     </style>
 </head>
 
 <body>
-hello
+<div class="navbar" style="align-self: flex-start; display:flex;">
+<div class="navbar-content">
+	<h3> <a style="text-decoration: none;" href="https://citruzsquared.github.io/blog/"> 
+	<span> SH<span style="color:#ff2828">i</span>RU </span> 
+	</a></h3>
+	<ul class="navbar" style="font-size:11pt; display:inline-block; align-self:flex-end;">
+		<li class="navbar" ><a href="#about">Homepage</a></li>
+		<li class="navbar" ><a href="#logos">About Blog</a></li>
+	</ul>
+</div>
+</div>
+
 </body>
 </html>
