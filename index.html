@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.cdnfonts.com/css/sofia-pro" rel="stylesheet">
-    <title>Shiru's Posts</title>
+    <title>Shiru's 文</title>
     <style>
       body {
             padding: 0;
@@ -21,10 +21,11 @@
 	top: 0;
 	width: 100%;
 	border-bottom-style: solid;
-	border-color: #808080;
+	border-color: #a0a0a0;
 	border-width: 1px;
- 	background-color:white;
+ 	background-color: #eeeeee;
 	z-index: 100;
+	flex: 0 1 auto;
         }
         div.navbar-content {
 	width:50%; 
@@ -37,7 +38,7 @@
             text-decoration: none;
         }
         a:hover, a:active {
-           color: #707070;
+           color: #606060;
         }
         li.navbar a {
 	display: block;
@@ -65,16 +66,33 @@
 	div.navbar {
 	padding-left: 20px;
 	padding-right: 0;
-	}
+	}}
 
+	div.content-box {
+		background-color: #ffffff;
+		flex: 1 1 auto;
+		width: 50%;
+		margin:auto;
+		padding-top: 50px;
+		padding-bottom: 50px;
+	}
+	div.footer {
+		height: 150px; 
+		flex: 0 1 auto; 
+		border-top-style: solid; 
+		border-color: #a0a0a0; 
+		border-width: 1px;
+		background-color: #eeeeee;
+	}
     </style>
 </head>
 
-<body>
+<body style="display:flex; flex-direction:column; min-height: 100vh">
+
 <div class="navbar">
 <div class="navbar-content">
 	<h3> <a href="https://citruzsquared.github.io/blog/"> 
-	Shiru's Posts
+	Shiru's 文
 	</a></h3>
 	<ul class="navbar" style="font-size:11pt; display:inline-block; align-self:flex-end;">
 		<li class="navbar" ><a href="https://citruzsquared.github.io/">Homepage</a></li>
@@ -82,59 +100,13 @@
 	</ul>
 </div>
 </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
-<div> wawa </div>
+<div class="content-box">
+<h1> Posts </h1>
+</div>
+<div class="footer"> 
+<div style="width:50%; margin:auto; padding-top:30px;">
+<b style="font-size:15pt"> SHIRU </b> </br> 김현우
+</div>
+</div>
 </body>
 </html>
