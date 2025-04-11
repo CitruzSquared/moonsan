@@ -49,7 +49,7 @@ $$
 <p> Then we can do some algebra to obtain: </p>
 $$
 \begin{align}
-x - y_1^2 &= \left(\sqrt{x} + y_1\right)\left(\sqrt{x} - y_n\right) = e \\
+x - y_n^2 &= \left(\sqrt{x} + y_1\right)\left(\sqrt{x} - y_n\right) = e \\
 \therefore \sqrt{x} &= \frac{e}{\sqrt{x} + y_n} + y_n
 \end{align}
 $$
@@ -58,6 +58,29 @@ $$
 y_{n+1} = \frac{e}{2y_n} + y_n
 $$
 <p> The above formula can be repeated as many times as needed. This method however is very subpar as there is a need to calculate the error every step.</p>
+<p> I will give an example with $x = 44$. We find that:</p>
+$$
+\begin{alignat}{4}
+a^2 &= 36 & \enspace\enspace\enspace a &= 6 \\
+b^2 &= 59 & b &= 7 \\
+\end{alignat}
+$$
+Therefore $y_1$ is:
+$$
+y_1 = 6 + \frac{44 - 36}{49 - 36} = \frac{86}{13} = 6.61538
+$$
+The error $e$ of this approximation is:
+$$
+e = 44 - \left(\frac{86}{13}\right)^2 = 0.23669
+$$
+So the second approximation is given as:
+$$
+y_2 = \frac{0.23669}{2 \cdot 86/13} + 86/13 = 6.63327
+$$
+The true square root of $44$ is:
+$$
+\sqrt{44} = 6.63324
+$$
 </div>
 <div class="footer"> 
 <div style="width:50%; margin:auto; padding-top:30px;">
