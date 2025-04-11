@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.cdnfonts.com/css/sofia-pro" rel="stylesheet">
+    <link href="../blogstyle.css" rel="stylesheet">
+    <title>First Post</title>
+
+<script>
+    MathJax = {
+      tex: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], displayMath: [ ["$$","$$"], ["\\[", "\\]"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno" }
+    };
+    </script>  
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+  
+</head>
+
+<body style="display:flex; flex-direction:column; min-height: 100vh">
+
+<div class="navbar">
+<div class="navbar-content">
+	<h3 style="font-size:15pt"> <a href="https://citruzsquared.github.io/blog/"> 
+	Shiru's 文山
+	</a></h3>
+	<ul class="navbar" style="font-size:11pt; display:inline-block; align-self:flex-end;">
+		<li class="navbar" ><a href="https://citruzsquared.github.io/">Homepage</a></li>
+		<li class="navbar" ><a href="#logos">About Blog</a></li>
+	</ul>
+</div>
+</div>
+<div class="content-box">
+<h1 class="title"> First Post </h1>
+<p class="postdate"> 2025.04.11 - English </p>
+<p> This is the first post in my blog. I will probably be writing about random things of interest here. </p>
+<p> As I have not much to talk about, in this first post I will just be sharing a very bad method of calculating square roots I came up with many years ago. </p>
+<p> First, we section off the square root function every square number then linearly interpolate. Say we want to find the square root of $x$. Let us first
+call $a^2$ the largest perfect square smaller than $x$ and $b^2$ the smallest perfect square larger than $x$. Then, $\sqrt{x}$ can be found via linear interpolation: </p>
+$$
+\sqrt{x} \approx a + \frac{x - a^2}{b^2 - a^2}
+$$
+<p> To improve this first approximation, which we will call $y_n$, we calculate the error $e$ of our approximation: </p>
+$$
+e = x - y_n^2
+$$
+<p> Then we can do some algebra to obtain: </p>
+$$
+\begin{align}
+x - y_1^2 &= \left(\sqrt{x} + y_1\right)\left(\sqrt{x} - y_n\right) = e \\
+\therefore \sqrt{x} &= \frac{e}{\sqrt{x} + y_n} + y_n
+\end{align}
+$$
+<p> If we approximate that $y_n$ is close enough to $\sqrt{x}$, we can write that the next approximation $y_{n+1}$ can be obtained by: </p>
+$$
+y_{n+1} = \frac{e}{2y_n} + y_n
+$$
+<p> The above formula can be repeated as many times as needed. This method however is very subpar as there is a need to calculate the error every step.</p>
+</div>
+<div class="footer"> 
+<div style="width:50%; margin:auto; padding-top:30px;">
+<b style="font-size:15pt"> SHiRU </b> </br> Citruz²
+</div>
+</div>
+</body>
+</html>
