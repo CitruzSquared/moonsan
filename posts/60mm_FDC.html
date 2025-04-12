@@ -140,7 +140,29 @@ $$
 \end{gather}
 $$
 <p> 이제 방열편각은 위 $(1)$로 구하면 된다. </p>
-
+<h3> 사거리 </h3>
+<p> 사거리<sub>RANGE, R</sub>를 구할때 단순히 피타고라스 정리를 써서 </p>
+$$
+R = \sqrt{\Delta x^2 + \Delta y^2} \cdot k
+$$
+<p> ($k$는 좌표의 자리수에 따른 거리단위) 처럼 구하면 아래의 사진처럼 포진과 목표물간 표고차가 존재하면 포탄이 엉뚱한 곳 ($X$)에 떨어질 수도 있다. </p>
+<img src="https://citruzsquared.github.io/moonsan/assets/60mm_FDC/distance1.png" width="600" height="300" style="display: block; margin:auto">
+<p> 이 이유는 좌표로 구한 지도상의 직선거리는 $MH$이기 때문이다. 이를 해결하려면 이 지도상 사거리에 "보조사거리"<sub>AUXILIARY RANGE, D</sub>를 더해야한다. </p>
+<img src="https://citruzsquared.github.io/moonsan/assets/60mm_FDC/distance2.png" width="600" height="300" style="display: block; margin:auto">
+<p> 위 그림에서 보조사거리는 $HA$이다. 박격포 사격시 $MA$에 해당하는 사각을 사표에서 읽어 박격포를 조준해야 포탄이 $\text{T}$에 떨어진다. 그러면 이 보조사거리는 어떻게 구하는가?
+위 그림에서 $THA$를 직각삼각형이라고 하고 $TH$<sub>표고차</sub>를 $\Delta h$로 표기하면 보조사거리 $D$는 </p>
+$$
+D = \Delta h \cdot \cot(TAH)
+$$
+<p> 로 구할 수 있다. 하지만 문제점은 이 $TAH$각이 사각을 따른다는 것이다. 사각을 구하려면 보조사거리가 필요하니 이 공식은 그대로 사용할 수 없다. 실전에서 쓰이는 방법은 평균적으로
+$\cot(TAH) = 0.5$라고 보고 다음 공식을 쓰는 것이다.</p>
+$$
+D = \frac{\Delta h}{2}
+$$
+<p> 정리하면, 박격포 최초산출에 쓰이는 사거리 공식은 아래의 공식이다. </p>
+$$
+R = \sqrt{\Delta x^2 + \Delta y^2} \cdot k + \frac{\Delta h}{2}
+$$
 </div>
 <div class="footer"> 
 <div style="width:50%; margin:auto; padding-top:30px;">
