@@ -90,7 +90,7 @@ $$
 <p> 사격요청이 들어오면 목표물<sub>TARGET, T</sub>의 좌표가 하달된다. 이때 좌표는 4자리수 또는 5자리수가 될수 있는데 통상 4자리수로 하달된다. 차이는 5자리수 좌표는 $1$미터 정밀도이고, 4자리수 좌표는 $10$미터 정밀도라는 점이다. 
 동일하게 3자리수 좌표는 $100$미터 정밀도이고 2자리수 좌표는 $1000$미터 정밀도지만 이들은 정확도가 많이 떨어지기에 잘 쓰이지 않는다. </p>
 <p> 처음 할 일은 포진<sub>MORTAR, M</sub>의 좌표와 목표물의 좌표의 차이를 구하는 것이다. T의 좌표를 $\textbf{T}$, M의 좌표를 $\textbf{M}$이라고 하면 좌표차는 다음 공식으로 구할수 있다. </p>
-<img src="https://citruzsquared.github.io/moonsan/assets/60mm_FDC/FA.png" width="300" style="float:left;">
+<img src="https://citruzsquared.github.io/moonsan/assets/60mm_FDC/FA.png" width="300" style="max-width:50%; float:left;">
 $$
 \begin{bmatrix} \Delta x \\ \Delta y \end{bmatrix} = \textbf{T} - \textbf{M}
 $$
@@ -107,21 +107,21 @@ $$
 <h4> T가 제1사분면에 위치할 경우 </h4>
 <p> 이경우는 위 그림과 동일하다. 이 때는 $\arctan\left(\Delta x/\Delta y\right)$이 사격방위각을 바로 주기에 아무런 수정도 불필요하다. </p> 
 <h4> T가 제2사분면에 위치할 경우 </h4>
-<img src="https://citruzsquared.github.io/moonsan/assets/60mm_FDC/FA_second.png" width="300" style="float:left;">
+<img src="https://citruzsquared.github.io/moonsan/assets/60mm_FDC/FA_second.png" width="300" style="max-width:50%; float:left;">
 <p> 이 경우에는 $\arctan\left(\Delta x/\Delta y\right)$이 좌측 그림에서 각 $A$의 값을 음수로 출력한다. 사격방위각을 구하려면 한바퀴를 더해야 한다.</p> 
 $$
 \text{FA} = \arctan\left(\frac{\Delta x}{\Delta y}\right) + 360^o
 $$
 </br> </br> </br> </br> </br> </br> </br> </br> </br>
 <h4> T가 제3사분면에 위치할 경우 </h4>
-<img src="https://citruzsquared.github.io/moonsan/assets/60mm_FDC/FA_third.png" width="300" style="float:left;">
+<img src="https://citruzsquared.github.io/moonsan/assets/60mm_FDC/FA_third.png" width="300" style="max-width:50%; float:left;">
 <p> 이 경우에는 $\arctan\left(\Delta x/\Delta y\right)$이 좌측 그림에서 각 $A$의 값을 양수로 출력한다. 사격방위각을 구하려면 각 $NMS$ (반바퀴)를 더해야 한다.</p>
 $$
 \text{FA} = \arctan\left(\frac{\Delta x}{\Delta y}\right) + 180^o
 $$ 
 </br> </br> </br> </br> </br> </br> </br> </br> </br>
 <h4> T가 제4사분면에 위치할 경우 </h4>
-<img src="https://citruzsquared.github.io/moonsan/assets/60mm_FDC/FA_fourth.png" width="300" style="float:left;">
+<img src="https://citruzsquared.github.io/moonsan/assets/60mm_FDC/FA_fourth.png" width="300" style="max-width:50%; float:left;">
 <p> 이 경우에는 $\arctan\left(\Delta x/\Delta y\right)$이 좌측 그림에서 각 $A$의 값을 음수로 출력한다. 사격방위각을 구하려면 각 $NMS$ (반바퀴)를 더해야 한다.</p>
 $$
 \text{FA} = \arctan\left(\frac{\Delta x}{\Delta y}\right) + 180^o
@@ -165,7 +165,7 @@ $$
 <h2> 수정사격 </h2>
 <p> 최초산출을 완료하여 사격을 했다고 하자. 초탄이 명중이면 좋겠지만 그렇지 않은 경우가 대다수이다. 포진 $M$이 원점이고 $y$축은 사격방위각 방면, $x$축은 그에 수직인 방면인 좌표계를 그리고
 포탄이 목표물에서 $x$방향으로 $\Delta x$미터, $y$방향으로 $\Delta y$미터 어긋났다고 하면 사각수정은 사거리룰 그냥 $R + \Delta y$로 수정하고 사표를 다시 읽으면 된다. </p>
-<img src="https://citruzsquared.github.io/moonsan/assets/60mm_FDC/fixing.png" width="200"  style="float:left;">
+<img src="https://citruzsquared.github.io/moonsan/assets/60mm_FDC/fixing.png" width="200"  style="max-width:50%; float:left;">
 <p> 편각수정은 조금 더 까다로운데, 옆 그림에서 $X$가 포탄이 떨어진 지점이라고 하면 $R = MT$이고 $\Delta x = XM$이다. 이때 편각을 $TMX$만큼 수정해야 되는데 이는</p>
 $$
 \sin(TMX) = \frac{\Delta x}{R}
