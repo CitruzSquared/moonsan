@@ -186,7 +186,7 @@ $$
 <h3> 관목방위각 </h3>
 <p>  실사격때는 대개 관측소<sub>OBSERVATORY</sub>에서 수정해야 되는 좌표 $\Delta x$와 $\Delta y$를 하달해준다. 하지만 관측소가 하달해주는 좌표는 사격방위각을 기준 삼은 좌표계가 아닌
 관측소에서의 목표물의 방위각인 관목방위각<sub>OBSERVATORY-TARGET AZIMUTH, OTAZ</sub>을 기준 삼은 좌표계를 쓰므로 위 공식들을 쓰기 전에 좌표계 변환을 해줘야 된다. 
-이 좌표계 변환은 단순한 회전변환행렬을 통해 할 수 있다. 관측소가 하달해주는 좌표를 $\Delta x_O$와 $\Delta y_O$라고 하고 사격방위각과 관목방위각의 차이<sub>$\text{FA} - \text{OTAZ}$</sub>를 $\theta$라 하면 </p> 
+이 좌표계 변환은 단순한 회전변환행렬을 통해 할 수 있다. 관측소가 하달해주는 좌표를 $\Delta x_O$와 $\Delta y_O$라고 하고 사격방위각과 관목방위각의 차이 $\text{FA} - \text{OTAZ}$를 $\theta$라 하면 </p> 
 $$
 \begin{bmatrix} \Delta x \\ \Delta y \end{bmatrix} =
 \begin{bmatrix} \cos(\theta) & -\sin(\theta) \\ \sin(\theta) & \cos(\theta) \end{bmatrix}
