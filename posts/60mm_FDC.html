@@ -18,7 +18,7 @@
         svg: {
             scale: 0.85
         }
-    };
+};
     </script>  
 <script type="text/javascript" id="MathJax-script" async
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
@@ -66,24 +66,80 @@ $$
 $$
 <h3> 사각 </h3>
 사각은 박격포를 쏠때 포탄이 얼마나 멀리 날아가는지를 조절한다. 사거리를 안다면 사각을 구할 수 있는데 이는 포탄의 종류와 장약의 호수<sub>號數</sub>에 따라서도 변화하므로 사각은 공식으로 구하는 대신
-그 포탄에 맞는 사표를 사용한다. 사표에는 사거리별 사각이 쓰여져 있는데 통상 사표에 나와있는 사거리중 실제 사거리와 제일 근접한 사거리의 사각을 쓴다. 예를 들어 사표에
+그 포탄에 맞는 사표를 이용해 구한다. 사표에는 사거리별 사각이 쓰여져 있는데 통상 기재된 사거리중 실제 사거리와 제일 근접한 사거리의 사각을 쓴다. 예를 들어 사표에
 $$
 \begin{array}{cc} \hline \text{사거리 (m)} & \text{사각 (MILS)} \\  \hline 
+... & ... \\
 1500 & 1045 \\
-1525 & 1038 \\ \hline 
+1525 & 1036 \\
+... & ... \\ \hline 
 \hline
 \end{array}
 $$
 라고 나와있고 실제 사거리가 $1510$미터라면 $1510$은 $1525$보다는 $1500$에 근접하니 $1045$MILS를 사각으로 사용한다. 더 정확한 사각을 원한다면 선형내삽을 해서 이 공식을 통해 구할 수 있다.
 $$
-y = y_1 + \frac{y_2 - y_1}{x_2 - x_1} \cdot (x - x_1)
+\text{사각} = \text{사각}_1 + \frac{\text{사각}_2 - \text{사각}_1}{\text{사거리}_2 - \text{사거리}_1} \cdot (\text{사거리} - \text{사거리}_1)
 $$
 예를 들어 정확한 사거리가 $1510$미터였다면 정확한 사각은
 $$
-1045 + \frac{1038 - 1045}{1525 - 1500} \cdot (1510 - 1500) = 1042 \text{ MILS}
+1045 + \frac{1036 - 1045}{1525 - 1500} \cdot (1510 - 1500) = 1041 \text{ MILS}
 $$
 가 된다.
 <h2> 최초산출 </h2>
+<h3> 사격방위각 </h3>
+<p> 사격요청이 들어오면 목표물<sub>TARGET, T</sub>의 좌표가 하달된다. 이때 좌표는 4자리수 또는 5자리수가 될수 있는데 통상 4자리수로 하달된다. 차이는 5자리수는 $1$미터 단위, 4자리수는 $10$미터 단위라는 점이다. 
+동일하게 3자리수 좌표는 $100$미터 단위고 2자리수 좌표는 $1000$미터 단위지만 이들은 정확도가 많이 떨어지기에 잘 쓰이지 않는다. </p>
+<p> 처음 할 일은 포진<sub>MORTAR, M</sub>의 좌표와 목표물의 좌표의 차이를 구하는 것이다. T의 좌표를 $\textbf{T}$, M의 좌표를 $\textbf{M}$이라고 하면 좌표차는 다음 공식으로 구할수 있다. </p>
+$$
+\boldsymbol\Delta = \textbf{T} - \textbf{M}
+$$
+<img src="https://citruzsquared.github.io/moonsan/assets/60mm_FDC/FA.png" width="300" height="300" style="float:left;">
+<p> 이때 횡좌표의 차이를 $\Delta x$, 종좌표의 차이를 $\Delta y$라고 하고 사격방위각을 $\text{FA}$ (FIRING AZIMUTH)라고 하면 옆 그림처럼 $\text{M}$이 원점이고 $y$축은 북쪽, $x$축은 동쪽인 좌표계를
+그릴수 있는데 이렇게 하면 </p> 
+$$
+\tan(\text{FA}) = \frac{\Delta x}{\Delta y}
+$$
+<p> 가 되므로 </p> 
+$$
+\text{FA} = \arctan\left(\frac{\Delta x}{\Delta y}\right) + \alpha
+$$
+<p> 처럼 사격방위각을 구할 수 있다. 이때 $+\alpha$가 붙는 이유는 $\text{T}$가 어느 사분면에 위치하느냐에 따라 $\arctan\left(\Delta x/\Delta y\right)$이 정확한 값을 주지 않을 수도 있기 때문이다. 이 $\alpha$의 값을 구해보자. </p> 
+</br> </br>
+<h4> T가 제1사분면에 위치할 경우 </h4>
+<p> 이경우는 위 그림과 동일하다. 이 때는 $\arctan\left(\Delta x/\Delta y\right)$이 사격방위각을 바로 주기에 아무런 수정도 불필요하다. </p> 
+<h4> T가 제2사분면에 위치할 경우 </h4>
+<img src="https://citruzsquared.github.io/moonsan/assets/60mm_FDC/FA_second.png" width="300" height="300" style="float:left;">
+<p> 이 경우에는 $\arctan\left(\Delta x/\Delta y\right)$이 좌측 그림에서 각 $A$의 값을 음수로 출력한다. 사격방위각을 구하려면 한바퀴를 더해야 한다.</p> 
+$$
+\text{FA} = \arctan\left(\frac{\Delta x}{\Delta y}\right) + 360^o
+$$
+</br> </br> </br> </br> </br> </br> </br> </br> </br>
+<h4> T가 제3사분면에 위치할 경우 </h4>
+<img src="https://citruzsquared.github.io/moonsan/assets/60mm_FDC/FA_third.png" width="300" height="300" style="float:left;">
+<p> 이 경우에는 $\arctan\left(\Delta x/\Delta y\right)$이 좌측 그림에서 각 $A$의 값을 양수로 출력한다. 사격방위각을 구하려면 각 $NMS$ (반바퀴)를 더해야 한다.</p>
+$$
+\text{FA} = \arctan\left(\frac{\Delta x}{\Delta y}\right) + 180^o
+$$ 
+</br> </br> </br> </br> </br> </br> </br> </br> </br>
+<h4> T가 제4사분면에 위치할 경우 </h4>
+<img src="https://citruzsquared.github.io/moonsan/assets/60mm_FDC/FA_fourth.png" width="300" height="300" style="float:left;">
+<p> 이 경우에는 $\arctan\left(\Delta x/\Delta y\right)$이 좌측 그림에서 각 $A$의 값을 음수로 출력한다. 사격방위각을 구하려면 각 $NMS$ (반바퀴)를 더해야 한다.</p>
+$$
+\text{FA} = \arctan\left(\frac{\Delta x}{\Delta y}\right) + 180^o
+$$ 
+</br> </br> </br> </br> </br> </br> </br> </br> </br> </br>
+<p> 이 모든걸 밀단위로 변환하고 정리하면, 사격방위각을 구하는 공식은 다음 공식이다. </p>
+$$
+\begin{gather}
+\text{FA} = \arctan\left(\frac{\Delta x}{\Delta y}\right) \cdot 17.77777 + \alpha \\ \\
+\alpha = \begin{cases}
+0 & \Delta x > 0 \text{ and } \Delta y > 0 \\
+6400 & \Delta x < 0 \text{ and } \Delta y > 0 \\
+3200 & \Delta y < 0 \\
+\end{cases}
+\end{gather}
+$$
+<p> 이제 방열편각은 위 $(1)$로 구하면 된다. </p>
 
 </div>
 <div class="footer"> 
