@@ -93,7 +93,7 @@ $$
 $$
 \boldsymbol\Delta = \textbf{T} - \textbf{M}
 $$
-<img src="https://citruzsquared.github.io/moonsan/assets/60mm_FDC/FA.png" width="300" height="300" style="float:left;">
+<img src="https://citruzsquared.github.io/moonsan/assets/60mm_FDC/FA.png" width="300" style="float:left;">
 <p> 이때 횡좌표의 차이를 $\Delta x$, 종좌표의 차이를 $\Delta y$라고 하고 사격방위각을 $\text{FA}$<sub>FIRING AZIMUTH</sub>라고 하면 옆 그림처럼 $\text{M}$이 원점이고 $y$축은 북쪽, $x$축은 동쪽인 좌표계를
 그릴수 있는데 이렇게 하면 </p> 
 $$
@@ -108,21 +108,21 @@ $$
 <h4> T가 제1사분면에 위치할 경우 </h4>
 <p> 이경우는 위 그림과 동일하다. 이 때는 $\arctan\left(\Delta x/\Delta y\right)$이 사격방위각을 바로 주기에 아무런 수정도 불필요하다. </p> 
 <h4> T가 제2사분면에 위치할 경우 </h4>
-<img src="https://citruzsquared.github.io/moonsan/assets/60mm_FDC/FA_second.png" width="300" height="300" style="float:left;">
+<img src="https://citruzsquared.github.io/moonsan/assets/60mm_FDC/FA_second.png" width="300" style="float:left;">
 <p> 이 경우에는 $\arctan\left(\Delta x/\Delta y\right)$이 좌측 그림에서 각 $A$의 값을 음수로 출력한다. 사격방위각을 구하려면 한바퀴를 더해야 한다.</p> 
 $$
 \text{FA} = \arctan\left(\frac{\Delta x}{\Delta y}\right) + 360^o
 $$
 </br> </br> </br> </br> </br> </br> </br> </br> </br>
 <h4> T가 제3사분면에 위치할 경우 </h4>
-<img src="https://citruzsquared.github.io/moonsan/assets/60mm_FDC/FA_third.png" width="300" height="300" style="float:left;">
+<img src="https://citruzsquared.github.io/moonsan/assets/60mm_FDC/FA_third.png" width="300" style="float:left;">
 <p> 이 경우에는 $\arctan\left(\Delta x/\Delta y\right)$이 좌측 그림에서 각 $A$의 값을 양수로 출력한다. 사격방위각을 구하려면 각 $NMS$ (반바퀴)를 더해야 한다.</p>
 $$
 \text{FA} = \arctan\left(\frac{\Delta x}{\Delta y}\right) + 180^o
 $$ 
 </br> </br> </br> </br> </br> </br> </br> </br> </br>
 <h4> T가 제4사분면에 위치할 경우 </h4>
-<img src="https://citruzsquared.github.io/moonsan/assets/60mm_FDC/FA_fourth.png" width="300" height="300" style="float:left;">
+<img src="https://citruzsquared.github.io/moonsan/assets/60mm_FDC/FA_fourth.png" width="300" style="float:left;">
 <p> 이 경우에는 $\arctan\left(\Delta x/\Delta y\right)$이 좌측 그림에서 각 $A$의 값을 음수로 출력한다. 사격방위각을 구하려면 각 $NMS$ (반바퀴)를 더해야 한다.</p>
 $$
 \text{FA} = \arctan\left(\frac{\Delta x}{\Delta y}\right) + 180^o
@@ -137,7 +137,7 @@ $$
 6400 & \Delta x < 0 \text{ and } \Delta y > 0 \\
 3200 & \Delta y < 0 \\
 \end{cases}
-\end{gather}
+\end{gather} \tag{2}
 $$
 <p> 이제 방열편각은 위 $(1)$로 구하면 된다. </p>
 <h3> 사거리 </h3>
@@ -146,9 +146,9 @@ $$
 R = \sqrt{\Delta x^2 + \Delta y^2} \cdot k
 $$
 <p> ($k$는 좌표의 자리수에 따른 거리단위) 처럼 구하면 아래의 사진처럼 포진과 목표물간 표고차가 존재하면 포탄이 엉뚱한 곳 ($X$)에 떨어질 수도 있다. </p>
-<img src="https://citruzsquared.github.io/moonsan/assets/60mm_FDC/distance1.png" width="600" height="300" style="display: block; margin:auto">
+<img src="https://citruzsquared.github.io/moonsan/assets/60mm_FDC/distance1.png" width="600" style="display: block; margin:auto">
 <p> 이 이유는 좌표로 구한 지도상의 직선거리는 $MH$이기 때문이다. 이를 해결하려면 이 지도상 사거리에 "보조사거리"<sub>AUXILIARY RANGE, D</sub>를 더해야한다. </p>
-<img src="https://citruzsquared.github.io/moonsan/assets/60mm_FDC/distance2.png" width="600" height="300" style="display: block; margin:auto">
+<img src="https://citruzsquared.github.io/moonsan/assets/60mm_FDC/distance2.png" width="600" style="display: block; margin:auto">
 <p> 위 그림에서 보조사거리는 $HA$이다. 박격포 사격시 $MA$에 해당하는 사각을 사표에서 읽어 박격포를 조준해야 포탄이 $\text{T}$에 떨어진다. 그러면 이 보조사거리는 어떻게 구하는가?
 위 그림에서 $THA$를 직각삼각형이라고 하고 $TH$<sub>표고차</sub>를 $\Delta h$로 표기하면 보조사거리 $D$는 </p>
 $$
@@ -161,12 +161,12 @@ D = \frac{\Delta h}{2}
 $$
 <p> 정리하면, 박격포 최초산출에 쓰이는 사거리 공식은 아래의 공식이다. </p>
 $$
-R = \sqrt{\Delta x^2 + \Delta y^2} \cdot k + \frac{\Delta h}{2}
+R = \sqrt{\Delta x^2 + \Delta y^2} \cdot k + \frac{\Delta h}{2} \tag{3}
 $$
 <h2> 수정사격 </h2>
 <p> 최초산출을 완료하여 사격을 했다고 하자. 초탄이 명중이면 좋겠지만 그렇지 않은 경우가 대다수이다. 포진 $M$이 원점이고 $y$축은 사격방위각 방면, $x$축은 그에 수직인 방면인 좌표계를 그리고
 포탄이 목표물에서 $x$방향으로 $\Delta x$미터, $y$방향으로 $\Delta y$미터 어긋났다고 하면 사각수정은 사거리룰 그냥 $R + \Delta y$로 수정하고 사표를 다시 읽으면 된다. </p>
-<img src="https://citruzsquared.github.io/moonsan/assets/60mm_FDC/fixing.png" width="200" height="300" style="float:left;">
+<img src="https://citruzsquared.github.io/moonsan/assets/60mm_FDC/fixing.png" width="200"  style="float:left;">
 <p> 편각수정은 조금 더 까다로운데, 옆 그림에서 $X$가 포탄이 떨어진 지점이라고 하면 $R = MT$이고 $\Delta x = XM$이다. 이때 편각을 $TMX$만큼 수정해야 되는데 이는</p>
 $$
 \sin(TMX) = \frac{\Delta x}{R}
@@ -178,12 +178,23 @@ TMX = \frac{1000 \Delta x}{R}
 $$
 <p> 이 되는데, 이때 $1000/R$은 $1/(R/1000)$이고 $R/1000$은 $R$을 키로미터 단위로 나타낸 것이니 위 공식은 아래처럼 쓸 수 있다. </p>
 $$
-TMX = \frac{\Delta x \enspace [\text{m}]}{R \enspace [\text{km}]}
+TMX = \frac{\Delta x \enspace [\text{m}]}{R \enspace [\text{km}]} \tag{4}
 $$
 <p> 이제 수정각도를 구했으니 이를 기존 편각에서 빼줄것이냐 더해줄것이냐가 중요한데, 이때 <b>좌가우감</b><sub>左加右減</sub>이라는 법칙을 사용한다. 편각을 수정할때
 좌측으로 수정할때는 수정값을 기존 편각에 더해주고 우측으로 수정할때는 기존에서 빼준다는 의미이다. 위 그림에선 $X$가 $T$의 좌측에 있으니 오른쪽으로 편각을 돌려야 한다. 이럴 때엔 좌가우감에 따라 
 편각에서 $TMX$를 빼주면 된다. </p>
 <h3> 관목방위각 </h3>
+<p>  실사격때는 대개 관측소<sub>OBSERVATORY</sub>에서 수정해야 되는 좌표 $\Delta x$와 $\Delta y$를 하달해준다. 하지만 관측소가 하달해주는 좌표는 사격방위각을 기준 삼은 좌표계가 아닌
+관측소에서의 목표물의 방위각인 관목방위각<sub>OBSERVATORY-TARGET AZIMUTH, OTAZ</sub>을 기준 삼은 좌표계이므로 위 공식들을 쓰기 전에 좌표계 변환을 해줘야 된다. 
+이 좌표계 변환은 단순한 회전변환행렬을 통해 할 수 있다. 관측소가 하달해주는 좌표를 $\Delta x_O$와 $\Delta y_O$라고 하고 사격방위각과 관목방위각의 차이를 $\theta$라 하면 </p> 
+$$
+\begin{bmatrix} \Delta x \\ \Delta y \end{bmatrix} =
+\begin{bmatrix} \cos(\theta) & -\sin(\theta) \\ \sin(\theta) & \cos(\theta) \end{bmatrix}
+\begin{bmatrix} \Delta x_O \\ \Delta y_O \end{bmatrix} \tag{5}
+$$
+<p> 이다. 실전에는 이 좌표계변환을 신속하게 하기 위해 M17이라는 도구를 쓰는데, 좌표가 그려진 판 위에 투명한 판을 돌려서 행렬식 없이 좌표변환을 할 수 있다. </p> 
+<h2> 예제 </h2>
+<h3> 최초산출 예제 </h3>
 </div>
 <div class="footer"> 
 <div style="width:50%; margin:auto; padding-top:30px;">
