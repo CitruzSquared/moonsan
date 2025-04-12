@@ -4,8 +4,8 @@ body {
             overflow: hidden;
             overflow-y: scroll;
             background-color: white;
-            font-family:'나눔스퀘어라운드';src:local('나눔스퀘어라운드'),local('나눔스퀘어라운드 '),local('NanumSquareRound'),local('NanumSquareRound '),url(NanumSquareRoundR.woff2) format('woff2'),url(NanumSquareRoundR.woff) format('woff');font-display:swap;font-weight:600;
-	font-size: 12pt;
+            font-family:'나눔스퀘어라운드';src:local('나눔스퀘어라운드'),local('나눔스퀘어라운드 '),local('NanumSquareRound'),local('NanumSquareRound '),url(NanumSquareRoundR.woff2) format('woff2'),url(NanumSquareRoundR.woff) format('woff');font-display:swap;font-weight:400;
+	font-size: 13pt;
         }
 	div.navbar {
 	font-family: 'Sofia Pro', sans-serif;
@@ -77,20 +77,20 @@ body {
 		color: #808080;
 		margin-top:0px;
 		margin-bottom:0px;
-		font-size: 15pt;
+		font-size: 17pt;
 	}
 	p.postdate {
 		color: #808080;
 		margin: 0px;
 		margin-bottom:20px;
-		font-size: 15pt;
+		font-size: 16pt;
 	}
 	p.title {
-		font-size: 20pt;
+		font-size: 22pt;
 		margin-top:0px;
 	}
 	h1.title {
-		font-size: 30pt;
+		font-size: 35pt;
 		margin-bottom: 0px;
 	}
         @media screen and (max-width: 800px) {
