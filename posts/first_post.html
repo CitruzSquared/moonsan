@@ -45,7 +45,7 @@
 <p> This is the first post in my blog. I will probably be writing about random things of interest here. </p>
 <p> As I have not much to talk about, in this first post I will just be sharing a very bad method of calculating square roots I came up with many years ago. </p>
 <p> First, we section off the square root function every square number then linearly interpolate. Say we want to find the square root of $x$. Let us first
-call $a^2$ the largest perfect square smaller than $x$ and $b^2$ the smallest perfect square larger than $x$. Then, $\sqrt{x}$ can be found via linear interpolation: </p>
+call $a^2$ the largest perfect square smaller than $x$ and $b^2$ the smallest perfect square larger than $x$. Then, $\sqrt{x}$ can be found via linear interpolation<a class="footnotelink" onmouseover="changer(1)" onmouseout="returner()"><sup>1</sup></a><a id="1" class="anchor"></a>: </p>
 $$
 \sqrt{x} \approx a + \frac{x - a^2}{b^2 - a^2}
 $$
@@ -88,13 +88,14 @@ $$
 $$
 \sqrt{44} = 6.63324
 $$
+<h3> Footnotes </h3>
+<p id="1-text"> <a href="#1" class="footnotelink">[1]</a> This linear interpolation is very bad for $0 < x < 1$.</p>
 </div>
 <div class="footer"> 
 <div style="width:50%; margin:auto; padding-top:30px;">
 <b style="font-size:15pt"> SHiRU </b> </br> Citruz²
 </div>
 </div>
-
 <div id="footnotebox" class="footnotebox" onmouseover="retainer()" onmouseout="returner()"> </p>
 
 <script src="../script.js"> </script> 
