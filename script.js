@@ -1,7 +1,7 @@
 let footnotebox = document.getElementById("footnotebox");
 function changer(x) {
 	id = x + "-text";
-	var f = document.getElementById(id).innerHTML;
+	var f = document.getElementById(id).innerText;
 	footnotebox.innerHTML = f;
 	footnotebox.style.display = "block";
 }
