@@ -15,9 +15,9 @@ body {
 	top: 0;
 	width: 100%;
 	border-bottom-style: solid;
-	border-color: #a0a0a0;
+	border-color: #d1c29b;
 	border-width: 1px;
- 	background-color: #eeeeee;
+ 	background-color: #fff8e6;
 	z-index: 100;
 	flex: 0 1 auto;
         }
@@ -64,9 +64,9 @@ body {
 		height: 150px; 
 		flex: 0 1 auto; 
 		border-top-style: solid; 
-		border-color: #a0a0a0; 
+		border-color: #d1c29b; 
 		border-width: 1px;
-		background-color: #eeeeee;
+		background-color: #fff8e6;
 		font-family: 'Sofia Pro', sans-serif;
 		font-weight: 400;
 	}
