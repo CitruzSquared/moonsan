@@ -1,8 +1,9 @@
 let footnotebox = document.getElementById("footnotebox");
+let footnotecontainer = document.getElementById("footnotecontainer");
 function changer(x) {
 	id = x + "-text";
 	var f = document.getElementById(id).innerText;
-	footnotebox.innerHTML = f;
+	footnotecontainer.innerHTML = f;
 	footnotebox.style.bottom = "0px";
 }
 
