@@ -33,7 +33,6 @@
 </head>
 
 <body style="display:flex; flex-direction:column; min-height: 100vh">
-
 <div class="navbar">
 <div class="navbar-content">
 	<h3 style="font-size:15pt"> <a href="https://citruzsquared.github.io/moonsan/"> 
@@ -78,7 +77,7 @@ $$
 \hline
 \end{array}
 $$
-라고 나와있고 실제 사거리가 $1510$미터라면 $1510$은 $1525$보다는 $1500$에 근접하니 $1045$MILS를 사각으로 사용한다. 더 정확한 사각을 원한다면 선형내삽을 해서 이 공식을 통해 구할 수 있다.
+라고 나와있고<a href="#1-text" class="footnotelink" onmouseover="changer(1)" onmouseout="returner()"><sup>1</sup></a><a id="1" class="anchor"></a> 실제 사거리가 $1510$미터라면 $1510$은 $1525$보다는 $1500$에 근접하니 $1045$MILS를 사각으로 사용한다. 더 정확한 사각을 원한다면 선형내삽을 해서 이 공식을 통해 구할 수 있다.
 $$
 \text{사각} = \text{사각}_1 + \frac{\text{사각}_2 - \text{사각}_1}{\text{사거리}_2 - \text{사거리}_1} \cdot (\text{사거리} - \text{사거리}_1)
 $$
@@ -198,6 +197,7 @@ $$
 <p> 이때 $R$은 수정 전 사거리를 사용하고 $\Delta x$는 절대값을 사용한다. 이제 수정각도를 구했으니 이를 기존 편각에서 빼줄 것이냐 더해줄 것이냐가 중요한 문제인데, 이때 <b>좌가우감</b><sub>左加右減</sub>이라는 법칙을 사용한다. 편각을 수정할때
 좌측으로 수정할때는 수정값을 기존 편각에 더해주고 우측으로 수정할때는 기존에서 빼준다는 의미이다. 위 그림에선 $X$가 $T$의 좌측에 있으니 오른쪽으로 편각을 돌려야 한다. 이럴 때엔 좌가우감에 따라 
 편각에서 $TMX$를 빼주면 된다. 만약에 편각이 아니고 사격방위각을 수정하고 싶다면 좌가우감이 아닌 우가좌감을 사용해야 한다. </p>
+
 <h3> 관목방위각 </h3>
 <p>  실사격때는 대개 관측소<sub>OBSERVATORY</sub>에서 수정해야 되는 좌표 $\Delta x$와 $\Delta y$를 하달해준다. 하지만 관측소가 하달해주는 좌표는 사격방위각을 기준 삼은 좌표계가 아닌
 관측소에서의 목표물의 방위각인 <b>관목방위각</b><sub>OBSERVATORY-TARGET AZIMUTH, OTAZ</sub>을 기준 삼은 좌표계를 쓰므로 위 공식들을 쓰기 전에 좌표계 변환을 해줘야 된다. 
@@ -217,7 +217,7 @@ $$
 \text{M :} & \text{ 52S CG 8516 3915 +64 m}
 \end{align}
 $$
-<p> 이고 포조준방위각이 $4263$ MILS이라 하고 최초산출을 해보자. 먼저 좌표차를 구하면 </p> 
+<p> 이고<a href="#2-text" class="footnotelink" onmouseover="changer(2)" onmouseout="returner()"><sup>2</sup></a><a id="2" class="anchor"></a> 포조준방위각이 $4263$ MILS이라 하고 최초산출을 해보자. 먼저 좌표차를 구하면 </p> 
 \begin{alignat}{3}
 8648 & \enspace & 3872 \\
 -\enspace8516 & \enspace & 3915 \\ \hline
@@ -260,11 +260,18 @@ $$
 <p> 이 된다. </p> 
 <h2> 결론 </h2>
 <p> 오늘은 60미리 박격포의 편각과 사각의 계산법에 대해 알아봤다. </p> 
+<h3> 각주 </h3>
+<p id="1-text"> <a href="#1" class="footnotelink">[1]</a> 실제 사표가 아니고 임의로 정한 수치들이다.</p>
+<p id="2-text"> <a href="#2" class="footnotelink">[2]</a> 이 예제에 나오는 좌표와 포조준방위각, 관목방위각은 임의로 정한 수치들이다.</p>
 </div>
 <div class="footer"> 
 <div style="width:50%; margin:auto; padding-top:30px;">
 <b style="font-size:15pt"> SHiRU </b> </br> Citruz²
 </div>
 </div>
+
+<div id="footnotebox" class="footnotebox"> </p>
+
+<script src="../script.js"> </script> 
 </body>
 </html>
