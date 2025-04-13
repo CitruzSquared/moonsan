@@ -6,6 +6,10 @@ function changer(x) {
 	footnotebox.style.display = "block";
 }
 
+function retainer() {
+	footnotebox.style.display = "block";
+}
+
 function returner() {
 	footnotebox.style.display = "none";
 }
