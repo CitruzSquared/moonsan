@@ -1,3 +1,6 @@
+html {
+            scroll-behavior: smooth;
+        }	
 body {
             padding: 0;
             margin: 0;
@@ -120,9 +123,14 @@ body {
 		color: #ffffff;
 		position: fixed;
 		bottom: 0;
-		padding: 20px;
 		bottom: -140px;
 		transition: all 0.5s ease
+	}
+	div.footnotecontainer {
+		width:50%; 
+		padding-top: 20px;
+		padding-bottom: 20px;
+		margin:auto;
 	}
 	a.footnotelink {
 		color: #94886c;
@@ -155,4 +163,11 @@ body {
 		width: auto;
 		margin-left: 20px;
 		margin-right: 20px;		
-	}}
+	}
+	div.footnotecontainer {
+		box-sizing:border-box;
+		width: auto;
+		margin-left: 20px;
+		margin-right: 20px;	
+	}
+	}
