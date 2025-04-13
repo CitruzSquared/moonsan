@@ -3,13 +3,14 @@ function changer(x) {
 	id = x + "-text";
 	var f = document.getElementById(id).innerText;
 	footnotebox.innerHTML = f;
-	footnotebox.style.display = "block";
+	footnotebox.style.bottom = "0px";
 }
 
 function retainer() {
-	footnotebox.style.display = "block";
+	footnotebox.style.bottom = "0px";
 }
 
 function returner() {
-	footnotebox.style.display = "none";
+	h = -1 * footnotebox.offsetHeight
+	footnotebox.style.bottom = h + "px";
 }
