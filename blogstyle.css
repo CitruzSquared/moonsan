@@ -114,7 +114,7 @@ body {
 	div.footnotebox {
 		box-sizing: border-box;
 		background-color: #101010;
-		width: 100%;
+		width: 100vw;
 		height: auto;
 		min-height: 140px;
 		color: #ffffff;
