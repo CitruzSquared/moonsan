@@ -150,6 +150,12 @@ body {
 		position: relative;
 		top: -250px;
 	}
+	p.footnotetext {
+		margin-top: 0px; 
+		margin-bottom: 10px; 
+		color: #909090; 
+		font-family: 'Sofia Pro', sans-serif;
+	}
         @media screen and (max-width: 800px) {
   	div.navbar-content {
 	width: 100%; 
