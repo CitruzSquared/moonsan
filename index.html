@@ -47,14 +47,16 @@ let postlist = ['60mm_FDC', 'first_post'];
 async function getText(file) {
   let myObject = await fetch(file);
   let myText = await myObject.text();
-  // console.log(myText);
   return myText;
 }
 
 async function generatePage() {	
 	for (let i = 0; i < postlist.length; i++) {
 		let post_html = await getText(`posts/${postlist[i]}.html`);
-		console.log(post_html);
+		let content_box = document.getElementsByClassName("content-box")[0];
+		let post_title = post_html.substring(post_html.indexOf('<h1 class="title">'), post_html.length);
+		post_title = post_html.substring(0, post_html.indexOf('<h1>');
+		console.log(post_title);
 	}
 }
 
