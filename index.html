@@ -55,7 +55,7 @@ async function generatePage() {
 		let post_html = await getText(`posts/${postlist[i]}.html`);
 		let content_box = document.getElementsByClassName("content-box")[0];
 		let post_title_cut = post_html.substring(post_html.indexOf('<h1 class="title">'), post_html.length);
-		let post_title = post_title_cut.substring(post_html.indexOf('>') + 1, post_title_cut.indexOf('</h1>'));
+		let post_title = post_title_cut.substring(post_title_cut.indexOf('>') + 1, post_title_cut.indexOf('</h1>'));
 		console.log(post_title);
 	}
 }
