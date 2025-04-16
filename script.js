@@ -5,7 +5,7 @@ function changer(x) {
 	var footnote = document.getElementById(id).innerHTML;
 	var footnoteNumber = footnote.substring(footnote.indexOf("["), footnote.indexOf("]") + 1);
 	var footnoteText = footnote.substring(footnote.indexOf("]") + 1, footnote.length);
-	footnotecontainer.innerHTML = `<p class='footnotetext'> FOOTNOTE </p> <span style='color:#94886c'>" + ${footnoteNumber} + "</span>" ${footnoteText}`;
+	footnotecontainer.innerHTML = `<p class='footnotetext'> FOOTNOTE </p> <span style='color:#94886c'> ${footnoteNumber} </span> ${footnoteText}`;
 	footnotebox.style.bottom = "0px";
 }
 
