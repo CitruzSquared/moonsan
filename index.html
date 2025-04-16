@@ -51,10 +51,14 @@ async function getText(file) {
   return myText;
 }
 
-for (let i = 0; i < postlist.length; i++) {
-	let post_html = await getText(`posts/${postlist[i]}.html`);
-	console.log(post_html);
+async function generatePage() {	
+	for (let i = 0; i < postlist.length; i++) {
+		let post_html = await getText(`posts/${postlist[i]}.html`);
+		console.log(post_html);
+	}
 }
+
+generatePage();
 </script>
 </body>
 </html>
