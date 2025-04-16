@@ -57,7 +57,7 @@ async function generatePage() {
 		let post_title_cut = post_html.substring(post_html.indexOf('<h1 class="title">'), post_html.length);
 		let post_title = post_title_cut.substring(post_title_cut.indexOf('>') + 1, post_title_cut.indexOf('</h1>'));
 		let post_date_cut = post_title_cut.substring(post_title_cut.indexOf('<p class="postdate">') + 1, post_title_cut.length);
-		let post_date = post_title_cut.substring(post_title_cut.indexOf('>') + 1, post_title_cut.indexOf('</p>'));
+		let post_date = post_date_cut.substring(post_date_cut.indexOf('>') + 1, post_date_cut.indexOf('</p>'));
 		console.log([post_title, post_date]);
 	}
 }
