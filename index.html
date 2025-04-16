@@ -56,7 +56,9 @@ async function generatePage() {
 		let content_box = document.getElementsByClassName("content-box")[0];
 		let post_title_cut = post_html.substring(post_html.indexOf('<h1 class="title">'), post_html.length);
 		let post_title = post_title_cut.substring(post_title_cut.indexOf('>') + 1, post_title_cut.indexOf('</h1>'));
-		console.log(post_title);
+		let post_date_cut = post_title_cut.substring(post_title_cut.indexOf('<p class="postdate">') + 1, post_title_cut.length);
+		let post_date = post_title_cut.substring(post_title_cut.indexOf('>') + 1, post_title_cut.indexOf('</p>'));
+		console.log([post_title, post_date]);
 	}
 }
 
