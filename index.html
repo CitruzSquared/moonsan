@@ -47,6 +47,7 @@ let postlist = ['60mm_FDC', 'first_post'];
 async function getText(file) {
   let myObject = await fetch(file);
   let myText = await myObject.text();
+  console.log(myText);
   return myText;
 }
 
