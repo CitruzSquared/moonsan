@@ -26,19 +26,7 @@
 </div>
 <div class="content-box">
 <h1 style="font-size:35pt"> Posts </h1>
-<div> 
-<p class="date"> 2025.04.13 - 한국어</p>
-<p class="title"> <a href="posts/60mm_FDC.html"> 60미리 박격포 FDC </a> </p>
-</div>
-<div> 
-<p class="date"> 2025.04.11 - English </p>
-<p class="title"> <a href="posts/first_post.html"> First Post </a> </p>
-</div>
-</div>
-<div class="footer"> 
-<div style="width:50%; margin:auto; padding-top:30px;">
-<b style="font-size:15pt"> SHiRU </b> </br> Citruz²
-</div>
+
 </div>
 
 <script> 
@@ -52,13 +40,16 @@ async function getText(file) {
 
 async function generatePage() {	
 	for (let i = 0; i < postlist.length; i++) {
-		let post_html = await getText(`posts/${postlist[i]}.html`);
-		let content_box = document.getElementsByClassName("content-box")[0];
+		let post_link = `posts/${postlist[i]}.html`
+		let post_html = await getText(post_link);
+		
 		let post_title_cut = post_html.substring(post_html.indexOf('<h1 class="title">'), post_html.length);
 		let post_title = post_title_cut.substring(post_title_cut.indexOf('>') + 1, post_title_cut.indexOf('</h1>'));
 		let post_date_cut = post_title_cut.substring(post_title_cut.indexOf('<p class="postdate">') + 1, post_title_cut.length);
 		let post_date = post_date_cut.substring(post_date_cut.indexOf('>') + 1, post_date_cut.indexOf('</p>'));
-		console.log([post_title, post_date]);
+
+		let content_box = document.getElementsByClassName("content-box")[0];
+		content_box.innerHTML += `<div> <p class="date"> ${post_date} </p> <p class="title"> <a href=" ${post_link} "> ${post_title} </a> </p> </div>`;
 	}
 }
 
