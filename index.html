@@ -41,5 +41,19 @@
 </div>
 </div>
 
+<script> 
+let postlist = ['60mm_FDC', 'first_post'];
+	
+async function getText(file) {
+  let myObject = await fetch(file);
+  let myText = await myObject.text();
+  return myText;
+}
+
+for (let i = 0; i < postlist.length; i++) {
+	let post_html = getText(`posts/${postlist[i]}.html`);
+	console.log(post_html);
+}
+</script>
 </body>
 </html>
