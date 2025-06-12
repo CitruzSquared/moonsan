@@ -44,55 +44,132 @@
 <div class="content-box">
 <h1 class="title"> Figure of an Ellipsoidal Planet, Part 1 </h1>
 <p class="postdate"> 2025.06.12 - English </p>
-<p> This is the first post in my blog. I will probably be writing about random things of interest here. </p>
-<p> As I have not much to talk about, in this first post I will just be sharing a very bad method of calculating square roots I came up with many years ago. </p>
-<p> First, we section off the square root function every square number then linearly interpolate. Say we want to find the square root of $x$. Let us first
-call $a^2$ the largest perfect square smaller than $x$ and $b^2$ the smallest perfect square larger than $x$. Then, $\sqrt{x}$ can be found via linear interpolation: </p>
+<p> Let us try and calculate the figure of a planet when viewed from the Earth. </p>
+<h2> Basics </h2>
+<p> The figure of any planet can be well approximated with an ellipsoid of revolution. Consider a coordinate system where the origin is
+at the center of the planet, the $xy$-plane contains the planet's equator, and the $z$-axis points towards the planet's axis of rotation. Then, the
+ellipsoid of the planet has the formula</p>
 $$
-\sqrt{x} \approx a + \frac{x - a^2}{b^2 - a^2}
+\frac{x^2}{a^2} + \frac{y^2}{a^2} + \frac{z^2}{b^2} = 1
 $$
-<p> <a class="footnotelink" onmouseover="changer(1)" onmouseout="returner()"><sup>1</sup></a><a id="1" class="anchor"></a> To improve this first approximation, which we will call $y_n$, 
-we calculate the error $e$ of our approximation: </p>
-$$
-e = x - y_n^2
-$$
-<p> Then we can do some algebra to obtain: </p>
+<p> Where $a$ is the equatorial radius and $b$ is the polar radius of the planet. In this system of coordinates, let $\xi$, $\eta$, and $\zeta$ denote the
+coordinates of the Earth. Then, let $\lambda$ and $\beta$ denote the longitude and latitude of the Earth such that</p>
 $$
 \begin{align}
-x - y_n^2 &= \left(\sqrt{x} + y_1\right)\left(\sqrt{x} - y_n\right) = e \\
-\therefore \sqrt{x} &= \frac{e}{\sqrt{x} + y_n} + y_n
+\xi &= \rho\cos(\beta)\cos(\lambda) \\
+\eta &= \rho\cos(\beta)\sin(\lambda) \\
+\zeta &= \rho\sin(\beta)
 \end{align}
 $$
-<p> If we approximate that $y_n$ is close enough to $\sqrt{x}$, we can write that the next approximation $y_{n+1}$ can be obtained by: </p>
+Where $\rho$ is the distance from the planet to the Earth, given by $\rho = \sqrt{\xi^2 + \eta^2 + \zeta^2}$.
+<h2> The Figure of the Whole Planet </h2>
+<p> Because the planet is rotationally symmetric about the $z$-axis, the angle $\lambda$ will have no effect on the figure of the whole planet. Also, as the
+cross section of an ellipsoid is always an ellipse, our planet will also have the shape of an ellipse when viewed from the Earth. The cross section we want
+to find is the set of points on the ellipsoid where the straight lines drawn to the Earth are tangent to the ellipsoid. The tangent plane at point $(p, q, s)$ on
+the ellipsoid is given by the formula </p>
 $$
-y_{n+1} = \frac{e}{2y_n} + y_n
+\frac{px}{a^2} + \frac{qy}{a^2} + \frac{sz}{b^2} = 1
 $$
-<p> The above formula can be repeated as many times as needed. This method however is very subpar as there is a need to calculate the error every step.</p>
-<p> I will give an example with $x = 44$. We find that:</p>
+<p> This equation gives all the points $(x, y, z)$ that a tangent drawn from a set point $(p, q, s)$ on the ellipsoid will go through. If we switch the variables such that the point the 
+tangent has to go through is fixed (the point $(\xi, \eta, \zeta)$) and the point of tangency becomes the variable, we will have </p>
 $$
-\begin{alignat}{4}
-a^2 &= 36 & \enspace\enspace\enspace a &= 6 \\
-b^2 &= 49 & b &= 7 \\
-\end{alignat}
+\frac{\xi x}{a^2} + \frac{\eta y}{a^2} + \frac{\zeta z}{b^2} = 1
 $$
-<p> Therefore $y_1$ is: </p> 
+<p> and now this equation describes the plane containing all the points of tangencies of tangent lines to the ellipsoid drawn from $(\xi, \eta, \zeta)$. Because 
+$(\xi, \eta, \zeta)$ is a point extremely far away from the origin, with $\xi$, $\eta$, and $\zeta$ being many more times greater than $a$ or $b$, we can say that
+the point $(\xi, \eta, \zeta)$ is essentially at infinity, and we can see that in this limit, the plane described by the equation above can be reduced to </p> 
 $$
-y_1 = 6 + \frac{44 - 36}{49 - 36} = \frac{86}{13} = 6.61538
+\frac{\xi x}{a^2} + \frac{\eta y}{a^2} + \frac{\zeta z}{b^2} = 0 \tag{1}
 $$
-<p> The error $e$ of this approximation is: </p> 
+<p> which passes through the origin. Therefore the semi-major axis of the cross section of the ellipse cut by this plane will
+always be $a$. </p>
+<p> Now let us consider the plane of longitude $\lambda$. Consider a new 2D coordinate system in this plane, with the origin at the planet's center and the $y$ axis pointing
+towards the planet's axis of rotation. The point $(\xi, \eta, \zeta)$ is in this plane and is given by the coordinates $(\sqrt{\xi^2 + \eta^2}, \zeta)$ $=$ $(\rho\cos(\beta), \rho\sin(\beta))$ 
+in the 2D coordinate system. The cross section of the ellipsoid of the planet cut by this plane is given by </p> 
 $$
-e = 44 - \left(\frac{86}{13}\right)^2 = 0.23669
+\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1 \tag{2}
 $$
-<p> So the second approximation is given as: </p> 
+<p> and equation $1$ reduces to </p>
 $$
-y_2 = \frac{0.23669}{2 \cdot 86/13} + 86/13 = 6.63327
+\frac{\rho\cos(\beta) x}{a^2} + \frac{\rho\sin(\beta) y}{b^2} = 0 \tag{3}
 $$
-<p> The true square root of $44$ is: </p> 
+<p> The slope $m$ of the above line is given by </p>
 $$
-\sqrt{44} = 6.63324
+m = -\frac{b^2 \rho\cos(\beta)}{a^2 \rho\sin(\beta)} = -\frac{b^2}{a^2} \cot(\beta)
 $$
-<h3> Footnotes </h3>
-<p id="1-text"> <a href="#1" class="footnotelink">[1]</a> This linear interpolation is very bad for $0 < x < 1$ as it comes out to $\sqrt{x} \approx x$.</p>
+<p> Therefore the angle the above line makes with the $x$ axis (which we denote by $A$) is given by </p>
+$$
+A = \arctan(m) = \arctan\left(-\frac{b^2}{a^2} \cot(\beta)\right) \tag{4}
+$$
+<p> If we denote one of the points at which the line of equation $3$ intersects with the ellipse of equation $2$ by $P$, because $P$ is the point of tangency of the viewline drawn from the Earth with the planet that is aligned
+with the planet's axis of rotation, the distance $OP$ (where $O$ is the origin) will be the semi-minor axis of the figure of the planet as seen from the Earth.</p>
+<p> Denoting the distance $OP$ by $r$ and the coordinates of $P$ by $(p, q)$, we can see that </p>
+$$
+\begin{align}
+p &= r\cos(A) \\
+q &= r\sin(A)
+\end{align}
+$$
+<p> If we substitute these into equation $2$, we get </p>
+$$
+\begin{align}
+\frac{r^2\cos^2(A)}{a^2} + \frac{r^2\sin^2(A)}{b^2} &= 1 \\
+\therefore r^2 \left(b^2 \cos^2(A) + a^2 \sin^2(A) \right) &= a^2 b^2 \\
+\therefore \frac{ab}{\sqrt{b^2 \cos^2(A) + a^2 \sin^2(A)}} &= r 
+\end{align}
+$$
+<p> Now let's define the eccentricity $e$ by </p>
+$$
+e = \sqrt{1 - \frac{b^2}{a^2}}
+$$
+<p> Thus </p>
+$$
+b = a \sqrt{1 - e^2}
+$$
+<p> Expressing the formula for $r$ above with eccentricity, we get </p>
+$$
+\begin{align}
+r &= \frac{ab}{\sqrt{b^2 \cos^2(A) + a^2 \sin^2(A)}} \\
+&= \frac{a^2 \sqrt{1 - e^2}}{\sqrt{a^2 (1 - e^2) \cos^2(A) + a^2 \sin^2(A)}} \\
+&= a\sqrt{\frac{1 - e^2}{(1 - e^2) \cos^2(A) + \sin^2(A)}} \\
+&= a\sqrt{\frac{1 - e^2}{\cos^2(A) - e^2 \cos^2(A) + \sin^2(A)}} \\
+&= a\sqrt{\frac{1 - e^2}{1 - e^2 \cos^2(A)}} \tag{5}
+\end{align}
+$$
+<p> Substituting equation $4$ into equation $5$, we get </p>
+$$
+r = a\sqrt{\frac{1 - e^2}{1 - e^2 \cos^2 \left( \arctan\left(-\frac{b^2}{a^2} \cot(\beta)\right) \right)}}
+$$
+<p> Because </p>
+$$
+\cos^2(\arctan(c)) = \frac{1}{1 + c^2}
+$$
+<p> We can reexpress the expression for $r$ as </p>
+$$
+\begin{align}
+r &= a\sqrt{\frac{1 - e^2}{1 -\frac{e^2}{1 + \frac{b^4}{a^4} \cot^2(\beta)}}} \\
+&= a\sqrt{\frac{1 - e^2}{1 - \frac{e^2 a^4}{a^4 + b^4 \cot^2(\beta)}}} \\
+&= a\sqrt{\frac{(1 - e^2)(a^4 + b^4 \cot^2(\beta))}{a^4 + b^4 \cot^2(\beta) - e^2 a^4}} \\
+\end{align}
+$$
+<p> Using the eccentricity again, we can rewrite the above as </p>
+$$
+\begin{align}
+r &= a\sqrt{\frac{(1 - e^2)(a^4 + b^4 \cot^2(\beta))}{a^4 + b^4 \cot^2(\beta) - e^2 a^4}} \\
+&= a\sqrt{\frac{(1 - e^2)(a^4 + a^4(1 - e^2)^2 \cot^2(\beta))}{a^4 + a^4(1 - e^2)^2 \cot^2(\beta) - e^2 a^4}} \\
+&= a\sqrt{\frac{(1 - e^2)(1 + (1 - e^2)^2 \cot^2(\beta))}{1 + (1 - e^2)^2 \cot^2(\beta) - e^2}} \\
+&= a\sqrt{\frac{(1 - e^2)(1 + (1 - e^2)^2 \cot^2(\beta))}{(1 - e^2)(1 + (1 - e^2) \cot^2(\beta))}} \\
+&= a\sqrt{\frac{1 + (1 - e^2)^2 \cot^2(\beta)}{1 + (1 - e^2) \cot^2(\beta)}} \\
+&= a\sqrt{\frac{1 + (1 - 2e^2 + e^4) \cot^2(\beta)}{1 + (1 - e^2) \cot^2(\beta)}} \\
+&= a\sqrt{\frac{1 + \cot^2(\beta) - 2e^2\cot^2(\beta) + e^4\cot^2(\beta)) }{1 + \cot^2(\beta) - e^2 \cot^2(\beta)}} \\
+&= a\sqrt{\frac{\csc^2(\beta) - e^2 \cot^2(\beta)(2 - e^2) }{\csc^2(\beta) - e^2 \cot^2(\beta)}} \\
+&= a\sqrt{\frac{1 - e^2 \cos^2(\beta)(2 - e^2) }{1 - e^2 \cos^2(\beta)}} \tag{6}
+\end{align}
+$$
+<p> Equation $6$ gives the semi-minor axis of the figure of the whole planet as seen from Earth. Dividing both $a$ and $r$ by $\rho$ gives the lengths of the axes of the ellipse
+in radians. The minor axis of the planet will point towards the point in the celestial sphere where planet's north pole points. </p>
+<h2> Part 2 </h2>
+<p> In the next part, we will determine the terminator line, the line that separates the illuminated part of the planet from the invisible part. </p>
 </div>
 <div class="footer"> 
 <div style="width:50%; margin:auto; padding-top:30px;">
