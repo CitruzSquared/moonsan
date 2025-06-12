@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Moonsan"/>
+    <meta property="og:description" content="Figure of an Ellipsoidal Planet, Part 1"/>
+    <link href="https://fonts.cdnfonts.com/css/sofia-pro" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@kfonts/nanum-square-round@0.2.0/index.min.css">
+    <link href="../blogstyle.css" rel="stylesheet">
+    <title>Figure of an Ellipsoidal Planet, Part 1</title>
+
+<script>
+       MathJax = {
+      tex: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], displayMath: [ ["$$","$$"], ["\\[", "\\]"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno" },
+      chtml: {
+            scale: 0.85
+        },
+        svg: {
+            scale: 0.85
+        }
+    };
+    </script>  
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+  
+</head>
+
+<body style="display:flex; flex-direction:column; min-height: 100vh">
+
+<div class="navbar">
+<div class="navbar-content">
+	<h3 style="font-size:15pt"> <a href="https://citruzsquared.github.io/moonsan/"> 
+	Shiru's 文山
+	</a></h3>
+	<ul class="navbar" style="font-size:11pt; display:inline-block; align-self:flex-end;">
+		<li class="navbar" ><a href="https://citruzsquared.github.io/">Homepage</a></li>
+		<li class="navbar" ><a href="../about.html">About Blog</a></li>
+	</ul>
+</div>
+</div>
+<div class="content-box">
+<h1 class="title"> Figure of an Ellipsoidal Planet, Part 1 </h1>
+<p class="postdate"> 2025.06.12 - English </p>
+<p> This is the first post in my blog. I will probably be writing about random things of interest here. </p>
+<p> As I have not much to talk about, in this first post I will just be sharing a very bad method of calculating square roots I came up with many years ago. </p>
+<p> First, we section off the square root function every square number then linearly interpolate. Say we want to find the square root of $x$. Let us first
+call $a^2$ the largest perfect square smaller than $x$ and $b^2$ the smallest perfect square larger than $x$. Then, $\sqrt{x}$ can be found via linear interpolation: </p>
+$$
+\sqrt{x} \approx a + \frac{x - a^2}{b^2 - a^2}
+$$
+<p> <a class="footnotelink" onmouseover="changer(1)" onmouseout="returner()"><sup>1</sup></a><a id="1" class="anchor"></a> To improve this first approximation, which we will call $y_n$, 
+we calculate the error $e$ of our approximation: </p>
+$$
+e = x - y_n^2
+$$
+<p> Then we can do some algebra to obtain: </p>
+$$
+\begin{align}
+x - y_n^2 &= \left(\sqrt{x} + y_1\right)\left(\sqrt{x} - y_n\right) = e \\
+\therefore \sqrt{x} &= \frac{e}{\sqrt{x} + y_n} + y_n
+\end{align}
+$$
+<p> If we approximate that $y_n$ is close enough to $\sqrt{x}$, we can write that the next approximation $y_{n+1}$ can be obtained by: </p>
+$$
+y_{n+1} = \frac{e}{2y_n} + y_n
+$$
+<p> The above formula can be repeated as many times as needed. This method however is very subpar as there is a need to calculate the error every step.</p>
+<p> I will give an example with $x = 44$. We find that:</p>
+$$
+\begin{alignat}{4}
+a^2 &= 36 & \enspace\enspace\enspace a &= 6 \\
+b^2 &= 49 & b &= 7 \\
+\end{alignat}
+$$
+<p> Therefore $y_1$ is: </p> 
+$$
+y_1 = 6 + \frac{44 - 36}{49 - 36} = \frac{86}{13} = 6.61538
+$$
+<p> The error $e$ of this approximation is: </p> 
+$$
+e = 44 - \left(\frac{86}{13}\right)^2 = 0.23669
+$$
+<p> So the second approximation is given as: </p> 
+$$
+y_2 = \frac{0.23669}{2 \cdot 86/13} + 86/13 = 6.63327
+$$
+<p> The true square root of $44$ is: </p> 
+$$
+\sqrt{44} = 6.63324
+$$
+<h3> Footnotes </h3>
+<p id="1-text"> <a href="#1" class="footnotelink">[1]</a> This linear interpolation is very bad for $0 < x < 1$ as it comes out to $\sqrt{x} \approx x$.</p>
+</div>
+<div class="footer"> 
+<div style="width:50%; margin:auto; padding-top:30px;">
+<b style="font-size:15pt"> SHiRU </b> </br> Citruz²
+</div>
+</div>
+	
+<div id="footnotebox" class="footnotebox" onmouseover="retainer()" onmouseout="returner()"> <div> <div id="footnotecontainer" class="footnotecontainer" style=""> </div> </div>
+
+<script src="../script.js"> </script> 
+</body>
+</html>
